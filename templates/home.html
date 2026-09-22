@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ambition Box Job Analysis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body, html {
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        .main-container {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* LEFT SIDE */
+        .left-side {
+            flex: 1;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .left-content {
+            max-width: 500px;
+        }
+
+        .left-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+
+            background: linear-gradient(135deg, #051630, #38bdf8);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .left-content p {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .feature-tags {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            color: #051630;
+            font-size: 0.7rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* RIGHT SIDE */
+        .right-side {
+            flex: 1;
+            background: #9b5de5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* CARD */
+        .analysis-card {
+            background-color: #051630;
+            width: 360px;
+            padding: 30px 28px;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+            color: white;
+        }
+
+        .analysis-card h2 {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #cbd5e1;
+        }
+
+        select {
+            width: 100%;
+            padding: 11px 12px;
+            border-radius: 7px;
+            border: none;
+            font-size: 0.85rem;
+            background-color: #f8fafc;
+            color: #1e293b;
+            outline: none;
+        }
+
+        .radio-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            margin: 18px 0;
+        }
+
+        .radio-options label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: #38bdf8;
+            color: #051630;
+            border: none;
+            padding: 13px;
+            border-radius: 9px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.25s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .submit-btn:hover {
+            background-color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 0.65rem;
+            margin-top: 12px;
+            opacity: 0.75;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="main-container">
+
+    <!-- LEFT -->
+    <div class="left-side">
+        <div class="left-content">
+            <h1>Explore Your Dream City</h1>
+            <p>
+                Discover job trends, top industries and company insights
+                across major Indian cities.
+            </p>
+
+            <div class="feature-tags">
+                <div class="tag">📊 Data-Driven</div>
+                <div class="tag">📍 City-Wise</div>
+                <div class="tag">🏢 Company Insights</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right-side">
+        <div class="analysis-card">
+            <h2>Ambition Box Job Analysis</h2>
+
+            <form action="/submit" method="POST">
+
+                <!-- SELECT CITY -->
+                <div class="form-group">
+                    <label>📍 Location</label>
+                    <select name="Location" required>
+                        <option value="" disabled selected>Select City</option>
+                        {% for loc in locations %}
+                        <option value="{{ loc }}">{{ loc }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- SELECT INDUSTRY -->
+                <div class="form-group">
+                    <label>🏭 Industry</label>
+                    <select name="industry" required>
+                        <option value="" disabled selected>Select Industry</option>
+                        {% for ind in industries %}
+                        <option value="{{ ind }}">{{ ind }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- SELECT RATING -->
+                <div class="form-group">
+                    <label>⭐ Rating (Minimum)</label>
+                    <select name="rating" required>
+                        <option value="" disabled selected>Select Rating</option>
+                        <option value="2">2.0 & Above</option>
+                        <option value="3">3.0 & Above</option>
+                        <option value="4">4.0 & Above</option>
+                        <option value="4.5">4.5 & Above</option>
+                    </select>
+                </div>
+
+                <!-- RADIO OPTIONS -->
+                <div class="radio-options">
+                    <label>
+                        <input type="radio" name="output" value="table" checked>
+                        Show Table
+                    </label>
+                    <label>
+                        <input type="radio" name="output" value="visual">
+                        Show Visuals
+                    </label>
+                </div>
+
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" class="submit-btn">
+                    Submit Analysis
+                </button>
+
+                <p class="footer-text">
+                    Analyze jobs by city, industry & rating
+                </p>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

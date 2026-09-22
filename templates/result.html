@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container" style="flex-direction: column; padding: 30px; text-align: center;">
+        <h1>Results for "{{ city }}"</h1>
+        {% if results %}
+            <ul style="margin-top: 20px; list-style-type: none; padding: 0;">
+                {% for item in results %}
+                    <li style="margin: 10px 0; font-size: 1.2em;">{{ item }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p style="margin-top: 20px; font-size: 1.2em;">No results found!</p>
+        {% endif %}
+        <a href="/" style="margin-top: 20px; display: inline-block; text-decoration: none; color: #4B0082; font-weight: bold;">Search Again</a>
+    </div>
+</body>
+</html>

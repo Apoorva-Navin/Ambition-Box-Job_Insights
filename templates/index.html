@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="card">
+        <h2>Ambition Box Job Analysis</h2>
+        
+        <label>Location</label>
+        <select id="location">
+            <option value="">Select City</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Bangalore">Bangalore</option>
+        </select>
+
+        <label>Industry</label>
+        <select id="industry">
+            <option value="">Select Industry</option>
+            <option value="IT">IT Services</option>
+            <option value="Finance">Finance</option>
+        </select>
+
+        <label>Rating (Minimum)</label>
+        <select id="rating">
+            <option value="0">Select Rating</option>
+            <option value="4">4+ Stars</option>
+            <option value="3">3+ Stars</option>
+        </select>
+
+        <div class="radio-group">
+            <label>Select Output</label>
+            <div class="options">
+                <input type="radio" name="output" value="table" checked> Show Table
+                <input type="radio" name="output" value="viz"> Show Visualizations
+            </div>
+        </div>
+
+        <button onclick="analyzeJobs()">Submit</button>
+        <p class="footer-text">Analyze jobs by city, industry & rating</p>
+    </div>
+</div>
+
+<div id="results"></div>
+

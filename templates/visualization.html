@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visual Analysis</title>
+    <style>
+        body, html { margin: 0; padding: 0; min-height: 100vh; font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ffffff 50%, #9b5de5 50%); background-attachment: fixed; }
+        
+        .container { display: flex; flex-direction: column; align-items: center; padding: 40px; }
+        
+        /* Grid for Large Graphs */
+        .viz-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; width: 95%; max-width: 1400px; }
+        .chart-card {
+            background: white; padding: 20px; border-radius: 15px; text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); border-top: 8px solid #051630;
+        }
+        .chart-card img { width: 100%; border-radius: 5px; }
+
+        /* Bold Boxed Back Button */
+        .back-btn {
+            margin-top: 50px; padding: 18px 60px; background-color: #051630; color: #38bdf8;
+            text-decoration: none; font-weight: 900; font-size: 1.2rem; border-radius: 10px;
+            text-transform: uppercase; border: 3px solid #051630; transition: 0.3s;
+        }
+        .back-btn:hover { background-color: #38bdf8; color: #051630; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: #051630; background: white; padding: 15px 40px; border-radius: 10px; margin-bottom: 40px;">Job Market Visualizations</h1>
+        
+        <div class="viz-grid">
+            <div class="chart-card">
+                <h3>Top 10 Companies</h3>
+                <img src="{{ url_for('static', filename=chart1) }}">
+            </div>
+            <div class="chart-card">
+                <h3>Industry Distribution</h3>
+                <img src="{{ url_for('static', filename=chart2) }}">
+            </div>
+        </div>
+
+        <a href="/" class="back-btn">← Back to Search</a>
+    </div>
+</body>
+</html>
